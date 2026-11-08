@@ -19,7 +19,7 @@
 </head>
 <body>
 
-  <!-- Floating Modal Backdrop -->
+  <!-- Floating Modal Overlay -->
   <div id="modal-overlay" class="modal-overlay">
     <div class="modal-container">
       <button id="modal-close" class="modal-close-btn" aria-label="Close modal">&times;</button>
@@ -58,7 +58,9 @@
 
       <!-- 1. Phone Initial State -->
       <section id="phone-content" class="screen-view phone-view">
-        <figure class="profile-avatar">RN</figure>
+        <figure class="profile-avatar">
+          <img src="pfp.jpg" alt="Rahim Nawaz Profile Picture" />
+        </figure>
         <h2 class="name-title">Rahim Nawaz</h2>
         <p class="role-subtitle">Data Analyst & Designer</p>
 
@@ -72,10 +74,15 @@
       <section id="desktop-content" class="screen-view desktop-view">
         
         <header class="portfolio-header">
-          <hgroup>
-            <p class="sub-label">Portfolio & Resume</p>
-            <h2 class="desktop-title">Rahim Nawaz</h2>
-          </hgroup>
+          <div class="header-profile-group">
+            <figure class="profile-avatar-sm">
+              <img src="pfp.jpg" alt="Rahim Nawaz Profile Picture" />
+            </figure>
+            <hgroup>
+              <p class="sub-label">Portfolio & Resume</p>
+              <h2 class="desktop-title">Rahim Nawaz</h2>
+            </hgroup>
+          </div>
           <a href="mailto:rahimnawazr1030@gmail.com" class="btn-primary">Contact Me</a>
         </header>
 
