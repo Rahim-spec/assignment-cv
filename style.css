@@ -34,57 +34,50 @@ ul {
   height: 100vh;
   width: 100%;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   position: relative;
   overflow: hidden;
-  padding-top: 20px;
 }
 
-/* Hero Header (Fun Fonts & Pushed Up) */
+/* Hero Header (Disappears on Scroll) */
 .hero-header {
   position: absolute;
-  top: 15px;
+  top: 30px;
   text-align: center;
   z-index: 10;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.3s ease;
 }
 
 .badge {
   display: inline-block;
-  font-family: 'Fredoka', cursive, sans-serif;
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 11px;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   color: var(--accent);
   background: var(--accent-light);
   border: 1px solid #dbeafe;
-  padding: 6px 16px;
+  padding: 6px 14px;
   border-radius: 50px;
-  margin-bottom: 6px;
-  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.1);
+  margin-bottom: 8px;
 }
 
 .hero-header h1 {
-  font-family: 'Fredoka', cursive, sans-serif;
-  font-size: 1.75rem;
-  font-weight: 700;
+  font-size: 1.5rem;
+  font-weight: 800;
   color: var(--text-main);
-  letter-spacing: 0.02em;
 }
 
 /* 3D Device Shell */
 .device-shell {
   position: relative;
-  margin-top: 100px;
   background-color: var(--bg-card);
   border: 1px solid var(--border);
   box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.1);
   border-radius: 36px;
   width: 330px;
-  height: 580px;
+  height: 620px;
   transform: perspective(1200px) rotateX(6deg) rotateY(-12deg) scale(0.85);
   transform-style: preserve-3d;
   display: flex;
@@ -93,7 +86,7 @@ ul {
   will-change: transform, width, height, border-radius;
 }
 
-/* Navigation & Window Bar */
+/* Top Window Control & Nav Bar */
 .device-bar {
   height: 40px;
   background-color: #f1f5f9;
@@ -158,7 +151,7 @@ ul {
   padding: 24px;
 }
 
-/* Mobile View */
+/* Mobile Screen Layout */
 .phone-view {
   display: flex;
   flex-direction: column;
@@ -223,7 +216,7 @@ ul {
   border-radius: 50%;
 }
 
-/* Desktop View (Straight Flat Rectangle) */
+/* Desktop Flat Rectangle Layout */
 .desktop-view {
   opacity: 0;
   transform: translateY(20px);
@@ -271,7 +264,7 @@ ul {
   opacity: 0.9;
 }
 
-/* Grid Layout */
+/* Portfolio Grid Section */
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

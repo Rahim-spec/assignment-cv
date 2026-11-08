@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rahim Nawaz | Interactive CV Portfolio</title>
+  <title>Rahim Nawaz | Interactive Portfolio</title>
   
-  <!-- Typography (Fredoka for fun headers & Plus Jakarta Sans for clean body text) -->
+  <!-- Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
-  <!-- CSS Stylesheet -->
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
 
-  <!-- GSAP Libraries -->
+  <!-- GSAP & Plugins -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
@@ -23,10 +23,10 @@
   <!-- Scroll Viewport Container -->
   <main id="scroll-container" class="scroll-wrapper">
     
-    <!-- Hero Title Header (No overlap & Fun typography) -->
+    <!-- Hero Title Header -->
     <header class="hero-header">
-      <mark class="badge">✨ Interactive CV Portfolio</mark>
-      <h1>Scroll down to expand profile 👇</h1>
+      <mark class="badge">Interactive Experience</mark>
+      <h1>Scroll down to expand profile</h1>
     </header>
 
     <!-- 3D Device Shell -->
@@ -40,7 +40,7 @@
           <li class="dot dot-green"></li>
         </ul>
         
-        <!-- Interactive Section Buttons -->
+        <!-- Smart Section Navigation Links -->
         <ul class="device-nav">
           <li><button class="nav-btn active" data-target="#profile-card">Profile</button></li>
           <li><button class="nav-btn" data-target="#education-card">Education</button></li>
@@ -49,7 +49,7 @@
         </ul>
       </nav>
 
-      <!-- 1. Phone View (Initial State) -->
+      <!-- 1. Phone Initial State -->
       <section id="phone-content" class="screen-view phone-view">
         <figure class="profile-avatar">RN</figure>
         <h2 class="name-title">Rahim Nawaz</h2>
@@ -61,7 +61,7 @@
         </ul>
       </section>
 
-      <!-- 2. Desktop View (Expanded State) -->
+      <!-- 2. Desktop Expanded State -->
       <section id="desktop-content" class="screen-view desktop-view">
         
         <header class="portfolio-header">
@@ -72,10 +72,10 @@
           <a href="mailto:rahimnawazr1030@gmail.com" class="btn-primary">Contact Me</a>
         </header>
 
-        <!-- Desktop Content Grid -->
+        <!-- Main Desktop Content Grid -->
         <section class="portfolio-grid">
           
-          <!-- Card 1: Profile -->
+          <!-- Card 1: Profile & Education -->
           <article id="profile-card" class="grid-card">
             <h3 class="card-title">Profile Summary</h3>
             <p class="card-desc">
