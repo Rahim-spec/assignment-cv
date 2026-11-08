@@ -42,7 +42,7 @@ ul {
 
 .hero-header {
   position: absolute;
-  top: 35px;
+  top: 30px;
   text-align: center;
   z-index: 10;
 }
@@ -62,21 +62,21 @@ ul {
 }
 
 .hero-header h1 {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-weight: 800;
   color: var(--text-main);
 }
 
-/* 3D Transform Device Frame */
+/* 3D Transform Device Frame (Clean & Subtle Tilt) */
 .device-shell {
   position: relative;
   background-color: var(--bg-card);
   border: 1px solid var(--border);
-  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.12);
-  border-radius: 40px;
-  width: 320px;
+  box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.1);
+  border-radius: 36px;
+  width: 330px;
   height: 620px;
-  transform: perspective(1000px) rotateX(15deg) rotateY(-35deg) scale(0.7);
+  transform: perspective(1200px) rotateX(6deg) rotateY(-12deg) scale(0.85);
   transform-style: preserve-3d;
   display: flex;
   flex-direction: column;
@@ -85,14 +85,15 @@ ul {
 
 /* Window Navigation Bar */
 .device-bar {
-  height: 36px;
+  height: 40px;
   background-color: #f1f5f9;
   border-bottom: 1px solid var(--border);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 16px;
+  padding: 0 14px;
   flex-shrink: 0;
+  z-index: 20;
 }
 
 .window-dots {
@@ -109,16 +110,42 @@ ul {
 .dot-yellow { background: #fbbf24; }
 .dot-green { background: #34d399; }
 
-.window-url {
+/* Smart Header Navigation Pills */
+.device-nav {
+  display: flex;
+  gap: 4px;
+  background: #e2e8f0;
+  padding: 3px;
+  border-radius: 8px;
+}
+
+.nav-btn {
+  background: transparent;
+  border: none;
+  font-family: inherit;
   font-size: 11px;
-  font-family: monospace;
+  font-weight: 600;
   color: var(--text-muted);
+  padding: 3px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.nav-btn:hover {
+  color: var(--text-main);
+}
+
+.nav-btn.active {
+  background: white;
+  color: var(--accent);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 /* Screen Sections */
 .screen-view {
   position: absolute;
-  inset: 36px 0 0 0;
+  inset: 40px 0 0 0;
   padding: 24px;
 }
 
@@ -193,9 +220,10 @@ ul {
   transform: translateY(20px);
   background: white;
   overflow-y: auto;
+  scroll-behavior: smooth;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 20px;
 }
 
 .portfolio-header {
@@ -203,7 +231,7 @@ ul {
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid var(--border);
-  padding-bottom: 16px;
+  padding-bottom: 14px;
 }
 
 .sub-label {
@@ -215,7 +243,7 @@ ul {
 }
 
 .desktop-title {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 800;
 }
 
@@ -237,7 +265,7 @@ ul {
 /* Portfolio Grid Section */
 .portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 16px;
 }
 
@@ -252,12 +280,21 @@ ul {
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: 18px;
+  transition: border-color 0.2s;
+}
+
+.grid-card:hover {
+  border-color: #cbd5e1;
+}
+
+.full-width {
+  grid-column: 1 / -1;
 }
 
 .card-title {
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 700;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   color: var(--text-main);
 }
 
@@ -265,7 +302,7 @@ ul {
   font-size: 0.8rem;
   color: var(--text-muted);
   line-height: 1.5;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .meta-box {
@@ -281,11 +318,34 @@ ul {
   text-decoration: none;
 }
 
+.edu-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: white;
+  border: 1px solid var(--border);
+  padding: 12px;
+  border-radius: 12px;
+}
+
+.edu-icon {
+  font-size: 20px;
+}
+
+.edu-item strong {
+  font-size: 0.85rem;
+}
+
+.edu-item p {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
 .tags-container {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .tag {
@@ -319,9 +379,15 @@ ul {
 }
 
 .cert-list {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 10px;
+}
+
+@media (max-width: 640px) {
+  .cert-list {
+    grid-template-columns: 1fr;
+  }
 }
 
 .cert-item {
