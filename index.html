@@ -13,12 +13,19 @@
   <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
 
-  <!-- GSAP & Plugins -->
+  <!-- GSAP Libraries -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
 </head>
 <body>
+
+  <!-- Floating Modal Backdrop -->
+  <div id="modal-overlay" class="modal-overlay">
+    <div class="modal-container">
+      <button id="modal-close" class="modal-close-btn" aria-label="Close modal">&times;</button>
+      <div id="modal-body" class="modal-body"></div>
+    </div>
+  </div>
 
   <!-- Scroll Viewport Container -->
   <main id="scroll-container" class="scroll-wrapper">
@@ -40,9 +47,9 @@
           <li class="dot dot-green"></li>
         </ul>
         
-        <!-- Smart Section Navigation Links -->
+        <!-- Navbar Buttons trigger Floating Cards -->
         <ul class="device-nav">
-          <li><button class="nav-btn active" data-target="#profile-card">Profile</button></li>
+          <li><button class="nav-btn" data-target="#profile-card">Profile</button></li>
           <li><button class="nav-btn" data-target="#education-card">Education</button></li>
           <li><button class="nav-btn" data-target="#skills-card">Skills</button></li>
           <li><button class="nav-btn" data-target="#certs-card">Certs</button></li>
@@ -75,7 +82,7 @@
         <!-- Main Desktop Content Grid -->
         <section class="portfolio-grid">
           
-          <!-- Card 1: Profile & Education -->
+          <!-- Card 1: Profile -->
           <article id="profile-card" class="grid-card">
             <h3 class="card-title">Profile Summary</h3>
             <p class="card-desc">

@@ -1,4 +1,4 @@
-gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+gsap.registerPlugin(ScrollTrigger);
 
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("scroll-container");
@@ -8,6 +8,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const heroHeader = document.querySelector(".hero-header");
   const navBtns = document.querySelectorAll(".nav-btn");
 
+  const modalOverlay = document.getElementById("modal-overlay");
+  const modalBody = document.getElementById("modal-body");
+  const modalClose = document.getElementById("modal-close");
+
+  // GSAP Scroll Animation Timeline
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: container,
@@ -19,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // 1. Fade out the "Scroll down to expand profile" text early on scroll
+  // 1. Fade out hero text
   tl.to(heroHeader, {
     opacity: 0,
     y: -20,
@@ -27,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ease: "power1.out"
   })
 
-  // 2. Straighten phone perspective completely to flat (0deg on all axes)
+  // 2. Straighten 3D perspective to 0deg
   .to(device, {
     rotateY: 0,
     rotateX: 0,
@@ -38,13 +43,13 @@ document.addEventListener("DOMContentLoaded", () => {
     ease: "power2.inOut"
   }, "-=0.2")
 
-  // 3. Fade out mobile screen view
+  // 3. Hide phone content
   .to(phoneContent, {
     opacity: 0,
     duration: 0.3
   }, "-=0.2")
 
-  // 4. Expand into a perfectly straight, flat rectangular desktop screen
+  // 4. Expand into flat desktop rectangle
   .to(device, {
     width: "90vw",
     height: "82vh",
@@ -57,39 +62,45 @@ document.addEventListener("DOMContentLoaded", () => {
     ease: "power3.inOut"
   }, "-=0.1")
 
-  // 5. Reveal desktop layout content cleanly
+  // 5. Reveal desktop layout
   .to(desktopContent, {
     opacity: 1,
     y: 0,
     duration: 0.5
   }, "-=0.3");
 
-  // Navigation Button Handlers
+  // Floating Section Modal Handler
   navBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
-      navBtns.forEach((b) => b.classList.remove("active"));
-      btn.classList.add("active");
+      const targetId = btn.dataset.target;
+      const targetCard = document.querySelector(targetId);
 
-      if (window.scrollY < 1000) {
-        gsap.to(window, {
-          scrollTo: { y: 2200 },
-          duration: 1.2,
-          ease: "power2.inOut",
-          onComplete: () => scrollToCard(btn.dataset.target)
-        });
-      } else {
-        scrollToCard(btn.dataset.target);
+      if (targetCard) {
+        // Highlight active navbar pill
+        navBtns.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        // Clone target card content into the modal container
+        modalBody.innerHTML = targetCard.outerHTML;
+
+        // Open floating overlay
+        modalOverlay.classList.add("active");
       }
     });
   });
 
-  function scrollToCard(targetId) {
-    const targetEl = document.querySelector(targetId);
-    if (targetEl && desktopContent) {
-      desktopContent.scrollTo({
-        top: targetEl.offsetTop - 70,
-        behavior: "smooth"
-      });
-    }
+  // Close modal function
+  function closeModal() {
+    modalOverlay.classList.remove("active");
+    navBtns.forEach((b) => b.classList.remove("active"));
   }
+
+  // Close triggers
+  modalClose.addEventListener("click", closeModal);
+  modalOverlay.addEventListener("click", (e) => {
+    if (e.target === modalOverlay) closeModal();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeModal();
+  });
 });
