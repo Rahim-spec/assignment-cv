@@ -40,11 +40,13 @@ ul {
   overflow: hidden;
 }
 
+/* Hero Header (Disappears on Scroll) */
 .hero-header {
   position: absolute;
   top: 30px;
   text-align: center;
   z-index: 10;
+  transition: opacity 0.3s ease;
 }
 
 .badge {
@@ -67,7 +69,7 @@ ul {
   color: var(--text-main);
 }
 
-/* 3D Transform Device Frame (Clean & Subtle Tilt) */
+/* 3D Device Shell */
 .device-shell {
   position: relative;
   background-color: var(--bg-card);
@@ -81,9 +83,10 @@ ul {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  will-change: transform, width, height, border-radius;
 }
 
-/* Window Navigation Bar */
+/* Top Window Control & Nav Bar */
 .device-bar {
   height: 40px;
   background-color: #f1f5f9;
@@ -110,7 +113,6 @@ ul {
 .dot-yellow { background: #fbbf24; }
 .dot-green { background: #34d399; }
 
-/* Smart Header Navigation Pills */
 .device-nav {
   display: flex;
   gap: 4px;
@@ -142,7 +144,7 @@ ul {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
-/* Screen Sections */
+/* Screen Views */
 .screen-view {
   position: absolute;
   inset: 40px 0 0 0;
@@ -214,7 +216,7 @@ ul {
   border-radius: 50%;
 }
 
-/* Desktop Screen Layout */
+/* Desktop Flat Rectangle Layout */
 .desktop-view {
   opacity: 0;
   transform: translateY(20px);
